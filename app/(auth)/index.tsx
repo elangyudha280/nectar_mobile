@@ -4,6 +4,9 @@
 import { ImageBackground,StatusBar,Animated } from "react-native";
 import { View,Text,ScrollView,ZStack, YStack,Image,H3,AnimatePresence,Button} from "tamagui";
 
+// import utils
+import { router } from "expo-router";
+
 const PageHome = () =>{
     return (
         <>
@@ -76,6 +79,9 @@ const PageHome = () =>{
                                     borderWidth:1,
                                     borderColor:'#53B175',
                                 }}
+                                onPress={()=>{
+                                    router.push('/(auth)/login')
+                                }}
                                 >
                                         Get Started
                                 </Button>
@@ -84,6 +90,8 @@ const PageHome = () =>{
                 </ImageBackground>
 
             </ScrollView>
+        <StatusBar barStyle={'light-content'}/>
+
         </>
     )
 }
