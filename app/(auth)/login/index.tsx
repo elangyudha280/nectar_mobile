@@ -5,6 +5,7 @@ import { ImageBackground,StatusBar } from 'react-native'
 import { View,Text,ScrollView ,Image,H4, H3, Input, Button} from 'tamagui'
 import { Link } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons' 
+
 function LoginPage() {
   let [showPassword,setShowPassword] = useState(false)
   return (
@@ -125,7 +126,7 @@ function LoginPage() {
                 <Text px={4} color={'#181725'}>
                   Don’t have an account? 
                 </Text>
-                <Link href={'/(auth)'} style={{color:'#53B175',fontWeight:'bold'}}>
+                <Link href={'/(auth)/signup'} style={{color:'#53B175',fontWeight:'bold'}}>
                   SignUp
                 </Link>
                </View>
