@@ -105,7 +105,7 @@ function LoginPage() {
                                 unstyled
                                 animation={"100ms"}
                                 paddingHorizontal={20}
-                                height={50}
+                                height={55}
                                 borderRadius={30}
                                 mt={50}
                                 justifyContent="center"
@@ -119,6 +119,29 @@ function LoginPage() {
                                 // }}
                                 >
                                         Login
+               </Button>
+
+               <Text my={20} textAlign='center' color={'#828282'}>
+               Or connect with social media
+               </Text>
+
+               {/* oaouth google */}
+               <Button 
+               enterStyle={{opacity:0}}
+                                unstyled
+                                animation={"100ms"}
+                                paddingHorizontal={20}
+                                height={55}
+                                flexDirection='row'
+                                borderRadius={30}
+                                justifyContent="center"
+                                alignItems="center"
+                                width={'100%'}
+                                backgroundColor={'#5383EC'}
+                                color={'white'}
+               >
+                 <Ionicons name={'logo-google'} size={25}   color="#fff" />
+                 <Text  textAlign='center'   color="#fff">Continue with Google</Text>                      
                </Button>
 
                 {/* to signup */}

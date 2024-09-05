@@ -120,7 +120,7 @@ function SignUpPage() {
                                   unstyled
                                   animation={"100ms"}
                                   paddingHorizontal={20}
-                                  height={50}
+                                  height={55}
                                   borderRadius={30}
                                   mt={50}
                                   justifyContent="center"
