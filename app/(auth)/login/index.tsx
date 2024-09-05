@@ -5,7 +5,7 @@ import { ImageBackground,StatusBar } from 'react-native'
 import { View,Text,ScrollView ,Image,H4, H3, Input, Button} from 'tamagui'
 import { Link } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons' 
-
+import { router } from 'expo-router'
 function LoginPage() {
   let [showPassword,setShowPassword] = useState(false)
   return (
@@ -113,10 +113,9 @@ function LoginPage() {
                                 width={'100%'}
                                 backgroundColor={'#53B175'}
                                 color={'white'}
-                               
-                                // onPress={()=>{
-                                //     router.push('/(auth)/login')
-                                // }}
+                                onPress={()=>{
+                                    router.replace('/(dashboard)/')
+                                }}
                                 >
                                         Login
                </Button>

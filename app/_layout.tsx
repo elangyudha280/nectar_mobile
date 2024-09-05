@@ -36,8 +36,9 @@ export default function RootLayout() {
 
   return (
     <TamaguiProvider config={config}>
-      <Stack>
+      <Stack >
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(dashboard)" options={{ headerShown:false }} />
         {/* <Stack.Screen name="+not-found" /> */}
       </Stack>
     </TamaguiProvider>
