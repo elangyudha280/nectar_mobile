@@ -7,14 +7,8 @@ import { Ionicons } from '@expo/vector-icons'
 
 function CustomTabBar(props:any) {
   return (
-    <View display='block' w={'100%'}  pt={11}  position='absolute' bottom={0}  zIndex={10} style={{
-      shadowColor: '#000', 
-      shadowOffset: { width: 0, height: -10 }, 
-      shadowOpacity: 0.7,
-      shadowRadius: 10,
-      elevation:30,
-    }}>
-        <View w={'100%'} bg={'white'}  px={20} py={6} borderTopStartRadius={20}  borderTopEndRadius={20} >
+    <View display='block' w={'100%'}   position='relative' bg={'white'} bottom={0}  zIndex={10}  >
+        <View w={'100%'} bg={'white'} borderWidth={1} borderColor={'#F2F3F2'}  px={20} py={6} borderTopStartRadius={18}  borderTopEndRadius={18} >
         <View
           maxWidth={500}
           mx={'auto'}
@@ -47,8 +41,8 @@ function CustomTabBar(props:any) {
               }
               return (
                 <View justifyContent='center' alignItems='center'>
-                  <Ionicons name="cart-outline" style={{fontWeight:'medium'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
-                  <Text fontWeight={'bold'} color={isFocused ? '#53B175' : '#181725'}> {route.name === 'index' ? "Shop": route.name}</Text>
+                  <Ionicons name="cart-outline" style={{fontWeight:'bold',fontFamily:'Gilroy_bold'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
+                  <Text fontWeight={'bold'} fontFamily={'Gilroy_bold'} color={isFocused ? '#53B175' : '#181725'}> {route.name === 'index' ? "Shop": route.name}</Text>
                 </View>
               )
             })
