@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // IMPORT COMPONENT
-import { SafeAreaView, StatusBar,TextInput,Dimensions, ImageBackground } from 'react-native'
+import { SafeAreaView, StatusBar,TextInput,Dimensions, ImageBackground, Pressable } from 'react-native'
 import { ScrollView,View,Text,Image, Circle,AnimatePresence } from 'tamagui'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -86,6 +86,7 @@ function PageDashboard() {
                       height:120,
                       padding:10,
                     }} initialPage={0}
+                    pageMargin={5}
                     onPageSelected={(e) => setSliderActive(e.nativeEvent.position)} 
                     >
                      
@@ -113,6 +114,89 @@ function PageDashboard() {
                             )
                           })
                         }
+                      </View>
+                  </View>
+
+                  {/*//! Content */}
+                  <View w={'100%'} position={'relative'} mt={15} p={2}>
+                      {/* //! header  */}
+                      <View flexDirection='row' gap={2} alignItems='center'>
+                          <Text flex={1} w={'100%'} fontSize={20} fontWeight={'bold'} fontFamily={'Gilroy_bold'}>
+                            Exclusive Offer
+                          </Text>
+                          <Text fontSize={15} fontWeight={'500'} color={'#53B175'} fontFamily={'Gilroy_semiBold'}>
+                            See all
+                          </Text>
+                      </View>
+
+                      {/*//! food list */}
+                      <View position='relative' w={'100%'} mt={10} >
+
+                         <PagerView style={{
+                          width:"100%",
+                          height:200,
+                        }} initialPage={0}
+                        pageMargin={10}
+                        // onPageSelected={(e) => setSliderActive(e.nativeEvent.position)} 
+                        >
+
+                          <View key={1} w={'100%'}   flexDirection='row' gap={5}>
+                            {/* card */}
+                            <View flex={1} w={'100%'}  p={10}  borderRadius={10} borderWidth={1} borderColor={'#E2E2E2'}>
+                              {/* header */}
+                              <View position='relative' w={'100%'} px={6} py={10} justifyContent='center' alignItems='center'>
+                              <Image source={require('@/assets/images/apple.png')} />
+                              </View>
+
+                              {/* body */}
+                              <View w={'100%'} p={5} display='flex' flexDirection='column' flex={1}>
+                                {/* description */}
+                                  <View py={2} flex={1}  h={'100%'} >
+                                  <Text fontSize={15} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'}>
+                                    Red Apple
+                                  </Text>
+
+                                  <Text fontSize={13} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'}>
+                                    1kg, Priceg
+                                  </Text>
+                                  </View>
+
+                                  {/* button add*/}
+                                  <View flexDirection='row' gap={5} alignItems='center' justifyContent='center'>
+                                    {/* price */}
+                                    <Text flex={1} color={'#181725'} fontFamily={'Gilroy_bold'}>
+                                      $4.99
+                                    </Text>
+
+                                    {/* button add */}
+                                    <Pressable 
+                                    style={{
+                                      width:30,
+                                      height:30,
+                                      display:'flex',
+                                      justifyContent:"center",
+                                      alignItems:'center',
+                                      backgroundColor:'#53B175',
+                                      borderRadius:5,
+                                    }}
+                                    >
+                                      <Ionicons name='add-outline' size={20} color={'#fff'}/>
+                                    </Pressable>
+                                  </View>
+                              </View>
+                            </View>
+                            {/* card */}
+                            <View flex={1} w={'100%'}  p={10} bg={'green'}>
+
+                            </View>
+                          </View>
+
+                          <View key={2} w={200} p={10} backgroundColor={'green'}>
+
+                          </View>
+                          
+                        </PagerView>
+
                       </View>
                   </View>
                 </View>

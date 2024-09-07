@@ -50,7 +50,6 @@ function CustomTabBar(props:any) {
 
         </View>
         </View>
-
     </View>
   )
 }
