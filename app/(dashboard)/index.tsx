@@ -10,6 +10,7 @@ import PagerView from 'react-native-pager-view'
 import { CardSliderDashboard } from '@/components/cards/cards'
 import { interfaceSlideItems } from '@/interface/cardSliderInterface'
 import useListExclusiveFood from '@/store/foodExclusive'
+import useFoodBestSelling from '@/store/foodBestSelling'
 
 const dataSliderDashboard : interfaceSlideItems[] = [
   {
@@ -44,6 +45,7 @@ function PageDashboard() {
   let [sliderActive,setSliderActive] = useState(0)
 
   let exclusiveFood = useListExclusiveFood((state:any) => state.exclusiveFood)
+  let foodBestSelling = useFoodBestSelling((state:any) => state.foodBestSelling)
 
   let cirlcleSlider :{id:string|number}[] = [
     {id:1},{id:2},{id:3},{id:4}
@@ -121,90 +123,173 @@ function PageDashboard() {
 
                   {/*//! Content */}
                   <View w={'100%'} position={'relative'} mt={15} p={2}>
-                      {/* //! header  */}
-                      <View flexDirection='row' gap={2} alignItems='center'>
-                          <Text flex={1} w={'100%'} fontSize={20} fontWeight={'bold'} fontFamily={'Gilroy_bold'}>
-                            Exclusive Offer
-                          </Text>
-                          <Text fontSize={15} fontWeight={'500'} color={'#53B175'} fontFamily={'Gilroy_semiBold'}>
-                            See all
-                          </Text>
-                      </View>
+                     {/* //! EXCLUSIVE FOOD */}
+                     <View>
+                         {/* //! header  */}
+                        <View flexDirection='row' gap={2} alignItems='center'>
+                            <Text flex={1} w={'100%'} fontSize={20} fontWeight={'bold'} fontFamily={'Gilroy_bold'}>
+                              Exclusive Offer
+                            </Text>
+                            <Text fontSize={15} fontWeight={'500'} color={'#53B175'} fontFamily={'Gilroy_semiBold'}>
+                              See all
+                            </Text>
+                        </View>
 
-                      {/*//! food list */}
-                      <View position='relative' w={'100%'} mt={10} >
-
-                       
-
-                         <FlatList 
-                         horizontal
-                         showsHorizontalScrollIndicator={false}
-                         progressViewOffset={0}
-                          data={exclusiveFood}
-                          ItemSeparatorComponent={()=>{
-                            return (
-                              <View w={11}></View>
-                            )
-                          }}  
-                          renderItem={({item})=>{
-                            return (
-                              <Fragment>
-                                  {/* card */}
-                                  <View flex={1} w={150}  p={8}  borderRadius={10} borderWidth={1} borderColor={'#E2E2E2'}>
-                                    {/* header */}
-                                    <View position='relative' w={'100%'} h={100} px={6}  justifyContent='center' alignItems='center'>
-                                    <Image source={item.poster} shadowOpacity={0.5} shadowColor={'#000'} shadowOffset={{
-                                      width:0,
-                                      height:0
-                                    }}
-                                    shadowRadius={10}
-                                    />
-                                    </View>
-      
-                                    {/* body */}
-                                    <View w={'100%'} p={5} display='flex' flexDirection='column' flex={1}>
-                                      {/* description */}
-                                        <View flex={1}  h={'100%'} >
-                                        <Text fontSize={15} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={1}>
-                                          {item.title}
-                                        </Text>
-      
-                                        <Text fontSize={13} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'} numberOfLines={3}>
-                                          {item.description}
-                                        </Text>
-                                        </View>
-      
-                                        {/* button add*/}
-                                        <View flexDirection='row' mt={5} gap={5} alignItems='center' justifyContent='center'>
-                                          {/* price */}
-                                          <Text flex={1} color={'#181725'} fontFamily={'Gilroy_bold'}>
-                                            {item.price}
+                        {/*//! food list */}
+                        <View position='relative' w={'100%'} mt={10} >
+                          <FlatList 
+                          horizontal
+                          showsHorizontalScrollIndicator={false}
+                          progressViewOffset={0}
+                            data={exclusiveFood}
+                            ItemSeparatorComponent={()=>{
+                              return (
+                                <View w={11}></View>
+                              )
+                            }}  
+                            renderItem={({item})=>{
+                              return (
+                                <Fragment>
+                                    {/* card */}
+                                    <View flex={1} w={150}  p={8}  borderRadius={10} borderWidth={1} borderColor={'#E2E2E2'}>
+                                      {/* header */}
+                                      <View position='relative' w={'100%'} h={100} px={6}  justifyContent='center' alignItems='center'>
+                                      <Image source={item.poster} shadowOpacity={0.5} shadowColor={'#000'} shadowOffset={{
+                                        width:0,
+                                        height:0
+                                      }}
+                                      shadowRadius={10}
+                                      />
+                                      </View>
+        
+                                      {/* body */}
+                                      <View w={'100%'} p={5} display='flex' flexDirection='column' flex={1}>
+                                        {/* description */}
+                                          <View flex={1}  h={'100%'} >
+                                          <Text fontSize={15} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={1}>
+                                            {item.title}
                                           </Text>
-      
-                                          {/* button add */}
-                                          <Pressable 
-                                          style={{
-                                            width:40,
-                                            height:40,
-                                            display:'flex',
-                                            justifyContent:"center",
-                                            alignItems:'center',
-                                            backgroundColor:'#53B175',
-                                            borderRadius:5,
-                                          }}
-                                          >
-                                            <Ionicons name='add-outline' size={20} color={'#fff'}/>
-                                          </Pressable>
-                                        </View>
+        
+                                          <Text fontSize={13} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'} numberOfLines={3}>
+                                            {item.description}
+                                          </Text>
+                                          </View>
+        
+                                          {/* button add*/}
+                                          <View flexDirection='row' mt={5} gap={5} alignItems='center' justifyContent='center'>
+                                            {/* price */}
+                                            <Text flex={1} color={'#181725'} fontFamily={'Gilroy_bold'}>
+                                              {item.price}
+                                            </Text>
+        
+                                            {/* button add */}
+                                            <Pressable 
+                                            style={{
+                                              width:40,
+                                              height:40,
+                                              display:'flex',
+                                              justifyContent:"center",
+                                              alignItems:'center',
+                                              backgroundColor:'#53B175',
+                                              borderRadius:5,
+                                            }}
+                                            >
+                                              <Ionicons name='add-outline' size={20} color={'#fff'}/>
+                                            </Pressable>
+                                          </View>
+                                      </View>
                                     </View>
-                                  </View>
-                              </Fragment>
-                            )
-                          }}
-                          keyExtractor={(item) => item.id}
-                         />
+                                </Fragment>
+                              )
+                            }}
+                            keyExtractor={(item) => item.id}
+                          />
+                        </View>
+                     </View>
 
-                      </View>
+                     {/*//! best selling */}
+                     <View mt={30}>
+                         {/* //! header  */}
+                        <View flexDirection='row' gap={2} alignItems='center'>
+                            <Text flex={1} w={'100%'} fontSize={20} fontWeight={'bold'} fontFamily={'Gilroy_bold'}>
+                              Best Selling
+                            </Text>
+                            <Text fontSize={15} fontWeight={'500'} color={'#53B175'} fontFamily={'Gilroy_semiBold'}>
+                              See all
+                            </Text>
+                        </View>
+
+                        {/*//! food list */}
+                        <View position='relative' w={'100%'} mt={10} >
+                          <FlatList 
+                          horizontal
+                          showsHorizontalScrollIndicator={false}
+                          progressViewOffset={0}
+                            data={foodBestSelling}
+                            ItemSeparatorComponent={()=>{
+                              return (
+                                <View w={11}></View>
+                              )
+                            }}  
+                            renderItem={({item})=>{
+                              return (
+                                <Fragment>
+                                    {/* card */}
+                                    <View flex={1} w={150}  p={8}  borderRadius={10} borderWidth={1} borderColor={'#E2E2E2'}>
+                                      {/* header */}
+                                      <View position='relative' w={'100%'} h={100} px={6}  justifyContent='center' alignItems='center'>
+                                      <Image source={item.poster} shadowOpacity={0.5} shadowColor={'#000'} shadowOffset={{
+                                        width:0,
+                                        height:0
+                                      }}
+                                      shadowRadius={10}
+                                      />
+                                      </View>
+        
+                                      {/* body */}
+                                      <View w={'100%'} p={5} display='flex' flexDirection='column' flex={1}>
+                                        {/* description */}
+                                          <View flex={1}  h={'100%'} >
+                                          <Text fontSize={15} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={1}>
+                                            {item.title}
+                                          </Text>
+        
+                                          <Text fontSize={13} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'} numberOfLines={3}>
+                                            {item.description}
+                                          </Text>
+                                          </View>
+        
+                                          {/* button add*/}
+                                          <View flexDirection='row' mt={5} gap={5} alignItems='center' justifyContent='center'>
+                                            {/* price */}
+                                            <Text flex={1} color={'#181725'} fontFamily={'Gilroy_bold'}>
+                                              {item.price}
+                                            </Text>
+        
+                                            {/* button add */}
+                                            <Pressable 
+                                            style={{
+                                              width:40,
+                                              height:40,
+                                              display:'flex',
+                                              justifyContent:"center",
+                                              alignItems:'center',
+                                              backgroundColor:'#53B175',
+                                              borderRadius:5,
+                                            }}
+                                            >
+                                              <Ionicons name='add-outline' size={20} color={'#fff'}/>
+                                            </Pressable>
+                                          </View>
+                                      </View>
+                                    </View>
+                                </Fragment>
+                              )
+                            }}
+                            keyExtractor={(item) => item.id}
+                          />
+                        </View>
+                     </View>
                   </View>
                 </View>
             </ScrollView>
