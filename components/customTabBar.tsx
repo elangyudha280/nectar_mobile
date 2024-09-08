@@ -40,7 +40,7 @@ function CustomTabBar(props:any) {
                 });
               }
               return (
-                <View justifyContent='center' alignItems='center'>
+                <View justifyContent='center' alignItems='center' key={index}>
                   <Ionicons name="cart-outline" style={{fontWeight:'bold',fontFamily:'Gilroy_bold'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
                   <Text fontWeight={'bold'} fontFamily={'Gilroy_bold'} color={isFocused ? '#53B175' : '#181725'}> {route.name === 'index' ? "Shop": route.name}</Text>
                 </View>
