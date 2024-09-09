@@ -1,10 +1,19 @@
 import React from "react"
 
-import { ImageBackground } from "react-native"
+import { ImageBackground,Pressable } from "react-native"
 import { View,Image,Text } from "tamagui"
+import { Ionicons } from "@expo/vector-icons"
 import { interfaceSlideItems } from "@/interface/cardSliderInterface"
-
+import { formatToUSD } from "@/utils/parseNumber"
 type propsSlider = interfaceSlideItems
+
+interface interfacePropsCardFood {
+  id?:string|number,
+  title:string,
+  description:string,
+  price:string|number,
+  poster:any,
+}
 
 const CardSliderDashboard  = ({id,title,diskon,poster}:propsSlider)=>{
     return (
@@ -56,4 +65,58 @@ const CardSliderDashboard  = ({id,title,diskon,poster}:propsSlider)=>{
     )
 }
 
-export {CardSliderDashboard};
+// component card food
+const CardFood = ({id,title,description,price,poster}:interfacePropsCardFood)=>{
+  return (
+    <View flex={1} w={150}  p={8}  borderRadius={10} borderWidth={1} borderColor={'#E2E2E2'}>
+    {/* header */}
+    <View position='relative' w={'100%'} h={100} px={6}  justifyContent='center' alignItems='center'>
+    <Image source={poster} shadowOpacity={0.5} shadowColor={'#000'} shadowOffset={{
+      width:0,
+      height:0
+    }}
+    shadowRadius={10}
+    />
+    </View>
+
+    {/* body */}
+    <View w={'100%'} p={5} display='flex' flexDirection='column' flex={1}>
+      {/* description */}
+        <View flex={1}  h={'100%'} >
+        <Text fontSize={15} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={1}>
+          {title}
+        </Text>
+
+        <Text fontSize={13} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'} numberOfLines={3}>
+          {description}
+        </Text>
+        </View>
+
+        {/* button add*/}
+        <View flexDirection='row' mt={5} gap={5} alignItems='center' justifyContent='center'>
+          {/* price */}
+          <Text flex={1} color={'#181725'} fontFamily={'Gilroy_bold'}>
+            {formatToUSD(price)}
+          </Text>
+
+          {/* button add */}
+          <Pressable 
+          style={{
+            width:40,
+            height:40,
+            display:'flex',
+            justifyContent:"center",
+            alignItems:'center',
+            backgroundColor:'#53B175',
+            borderRadius:5,
+          }}
+          >
+            <Ionicons name='add-outline' size={20} color={'#fff'}/>
+          </Pressable>
+        </View>
+    </View>
+  </View>
+  )
+}
+
+export {CardSliderDashboard,CardFood};
