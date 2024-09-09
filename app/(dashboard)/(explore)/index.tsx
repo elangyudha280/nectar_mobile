@@ -18,16 +18,20 @@ function PageExplore() {
                     </View>
 
                     {/*//! Input Search*/}
-                  <View w={'100%'} borderRadius={10} flexDirection='row' alignItems='center' mt={20} p={10} bg={'#F2F3F2'} columnGap={10}>
-                    <Ionicons name='search-outline' size={20} />
-                    <TextInput 
-                      inputMode='search'
-                      placeholder='Search Store'
-                      placeholderTextColor={'#7C7C7C'}
-                      style={{width:"100%",paddingVertical:0,flex:1}}
-                    />
-                  </View>
-                    
+                    <View w={'100%'} borderRadius={10} flexDirection='row' alignItems='center' mt={20} p={10} bg={'#F2F3F2'} columnGap={10}>
+                        <Ionicons name='search-outline' size={20} />
+                        <TextInput 
+                        inputMode='search'
+                        placeholder='Search Store'
+                        placeholderTextColor={'#7C7C7C'}
+                        style={{width:"100%",paddingVertical:0,flex:1}}
+                        />
+                    </View>
+
+                    {/*//! Content */}
+                    <View w={'100%'} position={'relative'} mt={15} p={2} flexDirection='row' gap={8} flexWrap='nowrap'>
+                        
+                    </View>
                 </View>
             </ScrollView>
     </SafeAreaView>
