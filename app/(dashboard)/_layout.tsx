@@ -11,15 +11,24 @@ const LayoutDashboard = ()=>{
                 return <CustomTabBar {...props}/>
             }}
         >
+            {/* router home */}
              <Tabs.Screen
                 name="index"
                 options={{
                     headerShown:false,
                     tabBarShowLabel:false,
-                    tabBarActiveTintColor:'red',
                 }}
             />  
-             
+
+            {/* router explore */}
+            <Tabs.Screen
+                name="(explore)"
+                options={{
+                    title:"explore",
+                    headerShown:false,
+                    tabBarShowLabel:false,
+                }}
+            />  
         </Tabs>
     )
 }

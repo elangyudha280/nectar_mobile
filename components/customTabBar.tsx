@@ -14,6 +14,8 @@ function CustomTabBar(props:any) {
           mx={'auto'}
           p={5}
           display='flex'
+          flexDirection='row'
+          gap={10}
         >
           {
             props?.state?.routes.map((route:any,index:any)=>{
@@ -40,9 +42,19 @@ function CustomTabBar(props:any) {
                 });
               }
               return (
-                <View justifyContent='center' alignItems='center' key={index}>
-                  <Ionicons name="cart-outline" style={{fontWeight:'bold',fontFamily:'Gilroy_bold'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
-                  <Text fontWeight={'bold'} fontFamily={'Gilroy_bold'} color={isFocused ? '#53B175' : '#181725'}> {route.name === 'index' ? "Shop": route.name}</Text>
+                <View justifyContent='center' alignItems='center' key={index} flex={1} onPress={onPress}>
+                  <Ionicons name={
+                    route.name === 'index' ? 
+                    'cart-outline'
+                    :
+                    'search'
+                  } style={{fontWeight:'bold',fontFamily:'Gilroy_bold'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
+
+                  <Text fontWeight={'bold'} fontFamily={'Gilroy_bold'} textTransform='capitalize' color={isFocused ? '#53B175' : '#181725'}> 
+                    {
+                    route.name === 'index' ? "Shop": options?.title
+                    }
+                  </Text>
                 </View>
               )
             })
