@@ -1,10 +1,16 @@
 import React from 'react'
 
 // import component
-import { View,Text } from 'tamagui'
-import {SafeAreaView,ScrollView,StatusBar,TextInput } from 'react-native'
+import { View,Text,Image } from 'tamagui'
+import {SafeAreaView,ScrollView,StatusBar,TextInput, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+
+// import store dan utils
+import useFoodCategory from '@/store/foodCategory'
+import { foodCategories } from '@/interface/interfaceFoodCategories'
 function PageExplore() {
+    
+  let foodCategories = useFoodCategory((state:any) => state.foodCategories)
   return (
     <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
             <ScrollView style={{paddingTop:StatusBar.currentHeight,flex:1}} >
@@ -29,7 +35,32 @@ function PageExplore() {
                     </View>
 
                     {/*//! Content */}
-                    <View w={'100%'} position={'relative'} mt={15} p={2} flexDirection='row' gap={8} flexWrap='nowrap'>
+                    <View w={'100%'} position={'relative'} mt={15} p={2} flexDirection='row' gap={8} flexWrap='wrap'  justifyContent='space-between' >
+
+                        {/* card category food*/}
+                        {
+                            foodCategories?.map((el:foodCategories,index:number)=>{
+                                return (
+                                    <TouchableOpacity key={el.id} style={{
+                                        paddingHorizontal:5,
+                                        paddingVertical:16,
+                                        backgroundColor:el.color,
+                                        borderRadius:10,
+                                        width:'48%',
+                                        flexBasis:'48%',
+                                        alignItems:'center',
+                                        borderWidth:1,
+                                        borderColor:`${el.bordercolor}`
+                                    }}>
+                                      
+                                        <Image source={el.poster}/>
+                                        <Text textTransform='capitalize' mt={15} fontSize={15} textAlign='center' fontFamily={'Gilroy_bold'}>
+                                            {el.title}
+                                        </Text>
+                                    </TouchableOpacity>
+                                )
+                            })
+                        }
                         
                     </View>
                 </View>
