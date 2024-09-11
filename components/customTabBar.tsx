@@ -45,9 +45,12 @@ function CustomTabBar(props:any) {
                 <View justifyContent='center' alignItems='center' key={index} flex={1} onPress={onPress}>
                   <Ionicons name={
                     route.name === 'index' ? 
-                    'cart-outline'
+                    'storefront-outline'
                     :
+                    route?.name === '(explore)' ?
                     'search'
+                    :
+                    'cart-outline'
                   } style={{fontWeight:'bold',fontFamily:'Gilroy_bold'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
 
                   <Text fontWeight={'bold'} fontFamily={'Gilroy_bold'} textTransform='capitalize' color={isFocused ? '#53B175' : '#181725'}> 

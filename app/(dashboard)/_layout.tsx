@@ -29,6 +29,16 @@ const LayoutDashboard = ()=>{
                     tabBarShowLabel:false,
                 }}
             />  
+
+            {/* router cart */}
+            <Tabs.Screen
+                name="cart/index"
+                options={{
+                    title:"Cart",
+                    headerShown:false,
+                    tabBarShowLabel:false,
+                }}
+            />  
         </Tabs>
     )
 }
