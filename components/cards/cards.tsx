@@ -115,7 +115,7 @@ const CardFood = ({id,title,description,price,poster}:interfacePropsCardFood)=>{
           </Pressable>
         </View>
     </View>
-  </View>
+    </View>
   )
 }
 
