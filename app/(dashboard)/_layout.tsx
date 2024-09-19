@@ -39,6 +39,16 @@ const LayoutDashboard = ()=>{
                     tabBarShowLabel:false,
                 }}
             />  
+
+            {/* router favorite */}
+            <Tabs.Screen
+                name="favorite/index"
+                options={{
+                    title:"Favorite",
+                    headerShown:false,
+                    tabBarShowLabel:false,
+                }}
+            /> 
         </Tabs>
     )
 }

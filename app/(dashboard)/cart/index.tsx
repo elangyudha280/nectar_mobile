@@ -2,12 +2,13 @@ import React from 'react'
 
 // import component
 import { View,Text,Image,styled } from 'tamagui'
-import {Pressable, SafeAreaView,ScrollView,StatusBar,TextInput, TouchableOpacity } from 'react-native'
+import {Pressable, SafeAreaView,ScrollView,StatusBar,TextInput, TouchableOpacity,useWindowDimensions } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 const StyledPressable = styled(Pressable);
 
 const PageCart = ()=>{
+    let {width} = useWindowDimensions()
     return (
         <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
             <ScrollView style={{paddingTop:StatusBar.currentHeight,flex:1}} contentContainerStyle={{flexGrow:1}} >
@@ -20,7 +21,7 @@ const PageCart = ()=>{
                     </View>
 
                     {/* //! body content */}
-                    <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={50}>
+                    <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 50 : 0 }>
                         {/*//! container card list */}
                         <View gap={8} position='relative' flex={1}>
                             {/* card cart list */}
@@ -131,7 +132,6 @@ const PageCart = ()=>{
                                 </Text>
 
                             </StyledPressable>
-
                         </View>
                     </View>
                 </View>
