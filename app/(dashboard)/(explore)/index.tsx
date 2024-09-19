@@ -2,7 +2,7 @@ import React from 'react'
 
 // import component
 import { View,Text,Image } from 'tamagui'
-import {SafeAreaView,ScrollView,StatusBar,TextInput, TouchableOpacity } from 'react-native'
+import {SafeAreaView,ScrollView,StatusBar,TextInput, TouchableOpacity,useWindowDimensions } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 // import store dan utils
@@ -10,6 +10,7 @@ import useFoodCategory from '@/store/foodCategory'
 import { foodCategories } from '@/interface/interfaceFoodCategories'
 function PageExplore() {
     
+    let {width} = useWindowDimensions()
   let foodCategories = useFoodCategory((state:any) => state.foodCategories)
   return (
     <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
@@ -35,8 +36,7 @@ function PageExplore() {
                     </View>
 
                     {/*//! Content */}
-                    <View w={'100%'} position={'relative'} mt={15} p={2} flexDirection='row' gap={8} flexWrap='wrap'  justifyContent='space-between' >
-
+                    <View w={'100%'} position={'relative'} mt={15} p={2} flexDirection='row' gap={8} flexWrap='wrap'  justifyContent={width >= 700 ? 'flex-start' : 'space-between'} >
                         {/* card category food*/}
                         {
                             foodCategories?.map((el:foodCategories,index:number)=>{
