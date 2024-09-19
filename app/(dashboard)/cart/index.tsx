@@ -23,7 +23,7 @@ const PageCart = ()=>{
                     {/* //! body content */}
                     <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 50 : 0 }>
                         {/*//! container card list */}
-                        <View gap={8} position='relative' flex={1}>
+                        <View gap={8} position='relative'  flex={1}>
                             {/* card cart list */}
                             <View position='relative' w={'100%'} py={20} borderBottomWidth={1} borderBottomColor={'#ddd'} flexDirection='row' gap={30} >
                                 {/* image */}

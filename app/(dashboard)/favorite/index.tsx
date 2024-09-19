@@ -22,6 +22,24 @@ const PageFavorite = ()=>{
                                 Favorite
                             </Text>
                         </View>
+
+                        {/* //! body content */}
+                        <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 50 : 0 }>
+                            {/*//! container card list */}
+                            <View gap={8} position='relative' flex={1}>
+                                
+                            </View>
+
+                             {/*//! container button add all favorite */}
+                            <View w={'100%'}>
+                                <StyledPressable   borderRadius={10} bg={"#53B175"} p={15} flexDirection='row' justifyContent='center' alignItems='center' gap={8}>
+                                    {/* text */}
+                                    <Text color={'#fff'} fontFamily={'Gilroy_bold'} flex={1} textAlign='center'>
+                                      Add All To Cart
+                                    </Text>
+                                </StyledPressable>
+                            </View>
+                        </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
