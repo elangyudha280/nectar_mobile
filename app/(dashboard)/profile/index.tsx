@@ -22,14 +22,27 @@ const PageProfile = ()=>{
                             {/* header profile */}
                             <View position='relative' px={20} pt={15} pb={20} borderBottomWidth={1} borderBottomColor={'#E2E2E2'} flexDirection='row' gap={10}>
                                 {/* img */}
-                                <View w={50} h={50} overflow='hidden' borderRadius={'$12'} bg={'red'}>
-                                <Image w={'100%'} h={'100%'} objectFit='cover' source={require('@/assets/images/profile.jpg')}/>
+                                <View w={50} h={50} overflow='hidden' borderRadius={'$12'} >
+                                    <Image w={'100%'} h={'100%'} objectFit='cover' source={require('@/assets/images/profile.jpg')}/>
+                                </View>
+
+                                {/* username */}
+                                <View flex={1} py={5}>
+                                    {/* name */}
+                                    <View w={'100%'}   flexDirection='row' gap={10} alignItems='center'>
+                                        <Text fontFamily={'Gilroy_bold'} fontSize={16}>Username</Text>
+                                        <StyledPressable>
+                                             <Ionicons name='pencil-sharp' size={17} color={'#53B175'} />
+                                        </StyledPressable>
+                                    </View>
+
+                                    {/* email */}
+                                    <Text fontFamily={'Gilroy_semiBold'} color={'#7C7C7C'} fontSize={15}>
+                                        user@email.com
+                                    </Text>
+
                                 </View>
                             </View>
-
-
-                            {/* username */}
-
                         </View>
 
                          {/*//! container button logout */}
