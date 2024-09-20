@@ -15,10 +15,20 @@ const PageProfile = ()=>{
             <ScrollView style={{paddingTop:StatusBar.currentHeight,flex:1}} contentContainerStyle={{flexGrow:1}} >
                 <View position='relative'  flex={1}>
                     {/* //! body content */}
-                    <View  pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 10 : 0 } >
+                    <View  pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 10 : 15 } >
 
                         {/*//! container info user */}
-                        <View gap={8} position='relative' flex={1} >
+                        <View gap={8} position='relative' flex={1}>
+                            {/* header profile */}
+                            <View position='relative' px={20} pt={15} pb={20} borderBottomWidth={1} borderBottomColor={'#E2E2E2'} flexDirection='row' gap={10}>
+                                {/* img */}
+                                <View w={50} h={50} overflow='hidden' borderRadius={'$12'} bg={'red'}>
+                                <Image w={'100%'} h={'100%'} objectFit='cover' source={require('@/assets/images/profile.jpg')}/>
+                                </View>
+                            </View>
+
+
+                            {/* username */}
 
                         </View>
 

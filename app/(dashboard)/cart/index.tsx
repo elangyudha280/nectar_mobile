@@ -21,7 +21,7 @@ const PageCart = ()=>{
                     </View>
 
                     {/* //! body content */}
-                    <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 50 : 0 }>
+                    <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 50 : 15 }>
                         {/*//! container card list */}
                         <View gap={8} position='relative'  flex={1}>
                             {/* card cart list */}

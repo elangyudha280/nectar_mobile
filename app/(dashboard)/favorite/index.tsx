@@ -22,7 +22,7 @@ const PageFavorite = ()=>{
                         </View>
 
                         {/* //! body content */}
-                        <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 10 : 0 }>
+                        <View px={25} pt={15}  gap={18}  flex={1} paddingBottom={width >= 700 ? 10 : 15 }>
                             {/*//! container card list */}
                             <View gap={8} position='relative' flex={1}>
                                 {/* card list favorite */}
