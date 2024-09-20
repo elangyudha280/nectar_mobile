@@ -49,6 +49,16 @@ const LayoutDashboard = ()=>{
                     tabBarShowLabel:false,
                 }}
             /> 
+
+            {/* router profile */}
+            <Tabs.Screen
+                name="profile/index"
+                options={{
+                    title:"Profile",
+                    headerShown:false,
+                    tabBarShowLabel:false,
+                }}
+            />
         </Tabs>
     )
 }

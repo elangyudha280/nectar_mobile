@@ -53,7 +53,10 @@ function CustomTabBar(props:any) {
                     route?.name === 'cart/index' ?
                     'cart-outline'
                     :
+                    route?.name === 'favorite/index' ?
                     'heart-outline'
+                    :
+                    'person-outline'
                   } style={{fontWeight:'bold',fontFamily:'Gilroy_bold'}} size={24} color={isFocused ? '#53B175' : '#181725'}/>
 
                   <Text fontWeight={'bold'} fontFamily={'Gilroy_bold'} textTransform='capitalize' color={isFocused ? '#53B175' : '#181725'}> 
