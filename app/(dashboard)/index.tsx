@@ -61,13 +61,13 @@ function PageDashboard() {
       id:1,
       title:'Pulses',
       poster:require('@/assets/images/carbo.png'),
-      color:'#FCAD5B'
+      color:'rgba(248,164,76,0.1)'
     },
     {
       id:2,
       title:'Rice',
       poster:require('@/assets/images/rice.png'),
-      color:'#73BA8C'
+      color:'rgba(83,117,117,0.1)'
     },
     
   ]

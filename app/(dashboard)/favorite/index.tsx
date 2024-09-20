@@ -10,8 +10,6 @@ const StyledPressable = styled(Pressable);
 
 const PageFavorite = ()=>{
     let {width} = useWindowDimensions()
-
-
     return (
         <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
             <ScrollView style={{paddingTop:StatusBar.currentHeight,flex:1}} contentContainerStyle={{flexGrow:1}} >
