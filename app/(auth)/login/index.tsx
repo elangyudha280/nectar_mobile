@@ -125,7 +125,6 @@ function LoginPage() {
         }, 1000);
     } catch(e) {
       // save error
-      console.log('gagal login')
       return e
     }
     

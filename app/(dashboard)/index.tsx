@@ -49,10 +49,12 @@ function PageDashboard() {
   let exclusiveFood = useListExclusiveFood((state:any) => state.exclusiveFood)
   let foodBestSelling = useFoodBestSelling((state:any) => state.foodBestSelling)
   let foodMeat = useFoodMeat((state:any) => state.foodMeat)
+  
 
   let cirlcleSlider :{id:string|number}[] = [
     {id:1},{id:2},{id:3},{id:4}
   ]  
+
   // React.useEffect(()=>{
   //   AsyncStorage.getItem('profile-user').then((value) => {
   //     console.log(value)
