@@ -14,7 +14,7 @@ import { interfaceSlideItems } from '@/interface/cardSliderInterface'
 import useListExclusiveFood from '@/store/foodExclusive'
 import useFoodBestSelling from '@/store/foodBestSelling'
 import useFoodMeat from '@/store/foodMeat'
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
 const dataSliderDashboard : interfaceSlideItems[] = [
   {
     id:1,
@@ -44,7 +44,6 @@ const dataSliderDashboard : interfaceSlideItems[] = [
 
 
 function PageDashboard() {
-
   let [sliderActive,setSliderActive] = useState(0)
 
   let exclusiveFood = useListExclusiveFood((state:any) => state.exclusiveFood)
@@ -54,7 +53,16 @@ function PageDashboard() {
   let cirlcleSlider :{id:string|number}[] = [
     {id:1},{id:2},{id:3},{id:4}
   ]  
-
+  // React.useEffect(()=>{
+  //   AsyncStorage.getItem('profile-user').then((value) => {
+  //     console.log(value)
+  //     if (value !== null) {
+  //       console.log('Data yang diambil:', value);
+  //     }
+  //   }).catch((error) => {
+  //     console.log('Gagal mengambil data:', error);
+  //   });
+  //     })
   // data bahan makanan
   let Groceries : GroceriesDashboard[] = [
     {

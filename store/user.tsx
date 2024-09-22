@@ -6,7 +6,8 @@ import { persist } from "zustand/middleware"
 export interface interfaceUseUser {
     username:string,
     email:string,
-    password:string
+    password:string,
+    setDataUser(data:object) : void
 } 
 
 export const useUser = create(persist(
@@ -14,6 +15,9 @@ export const useUser = create(persist(
       username:'',
       email:'',
       password:'',
+      setDataUser(data){
+        console.log(data)
+      }
     }),
     {
       name: "profile-user", // unique name
