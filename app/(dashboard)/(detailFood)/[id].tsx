@@ -40,7 +40,7 @@ function PageDetailFood() {
                   </View>
 
                   {/*//! Body */}
-                  <View position='relative' w={'100%'} flex={1} py={10} px={20}>
+                  <View position='relative' w={'100%'} flex={1} pt={15} pb={20} px={20}>
                     {/* name detail food */}
                     <View position='relative' w={'100%'} flexDirection='row' gap={10} p={5} alignItems='center'>
                       {/* name */}
@@ -56,7 +56,6 @@ function PageDetailFood() {
                       <PressableStyled position='relative' justifyContent='center' alignItems='center'>
                         <Ionicons name='heart-outline' size={30} color={'#7C7C7C'}/>
                       </PressableStyled>
-
                     </View>
 
                     {/* increment dan decrement */}
@@ -90,6 +89,27 @@ function PageDetailFood() {
                       </View>
  
                     </View>
+
+
+                    {/* description */}
+                    <View flex={1} px={5} py={15} borderTopWidth={1} borderTopColor={'#E2E2E2'}>
+                        <Text fontSize={20} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={2}>
+                          Product Detail
+                        </Text>
+
+                        {/* desc */}
+                        <Text fontSize={15} fontFamily={'Gilroy_semiBold'} mt={10}  color={'#7C7C7C'} textAlign='justify' lineHeight={19}>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem aliquid, id blanditiis atque consectetur adipisci? Maiores consequuntur error quo accusamus! 
+                        </Text>
+                    </View>
+
+                    {/* button add to cart */}
+                    <PressableStyled   borderRadius={10} bg={"#53B175"} p={15} flexDirection='row' justifyContent='center' alignItems='center' gap={8}>
+                                    {/* text */}
+                                    <Text color={'#fff'} fontFamily={'Gilroy_bold'} flex={1} textAlign='center'>
+                                      Add All To Cart
+                                    </Text>
+                    </PressableStyled>
                   </View>
 
                 </View>
