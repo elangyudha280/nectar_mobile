@@ -12,11 +12,11 @@ function PageDetailFood() {
     // get parameter
     let {id} = useLocalSearchParams()
   return (
-    <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
-            <ScrollView style={{flex:1}} contentContainerStyle={{flexGrow:1}}>
+      <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
+            <ScrollView style={{flex:1,backgroundColor:'white'}} contentContainerStyle={{flexGrow:1}}>
                 <View position='relative' w={'100%'} height={'100%'}>
                   {/*//! TOP */}
-                  <View position='relative' w={'100%'} pt={StatusBar.currentHeight}   bg={'#f79d65'}>
+                  <View position='relative' w={'100%'} pt={StatusBar.currentHeight} borderBottomLeftRadius={10} borderBottomRightRadius={10}  bg={'#f79d65'}>
                     {/* header navigasi */}
                     <View position='relative'  w={'100%'} p={5}  flexDirection='row' px={15} justifyContent='space-between' alignItems='center'>
                       {/* icom back */}
@@ -38,9 +38,64 @@ function PageDetailFood() {
                           <Image source={require('@/assets/images/apple.png')}  w={200} h={200} objectFit='contain'/>
                     </View>
                   </View>
+
+                  {/*//! Body */}
+                  <View position='relative' w={'100%'} flex={1} py={10} px={20}>
+                    {/* name detail food */}
+                    <View position='relative' w={'100%'} flexDirection='row' gap={10} p={5} alignItems='center'>
+                      {/* name */}
+                      <View flex={1}>
+                        <Text fontSize={23} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={2}>
+                          Nature Red Apple
+                        </Text>
+
+                        <Text fontSize={14} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'} numberOfLines={3}>
+                          1kg, Price
+                        </Text>
+                      </View>
+                      <PressableStyled position='relative' justifyContent='center' alignItems='center'>
+                        <Ionicons name='heart-outline' size={30} color={'#7C7C7C'}/>
+                      </PressableStyled>
+
+                    </View>
+
+                    {/* increment dan decrement */}
+                    <View w={'100%'}  my={15} flexDirection='row' alignItems='center'>
+                      {/* left button */}
+                      <View flexDirection='row' gap={12}>
+                        {/* button decrement */}
+                        <PressableStyled   justifyContent='center' alignItems='center'>
+                          <Ionicons name='remove-outline' size={30} color={'#7C7C7C'}/>
+                        </PressableStyled> 
+
+                        {/* total */}
+                        <View  borderRadius={'$7'} w={45} h={45} borderWidth="$1" borderColor={'#E2E2E2'} justifyContent='center' alignItems='center' p={2}>
+                              <Text  fontFamily={'Gilroy_semiBold'} numberOfLines={1}>
+                                100
+                              </Text>
+                        </View>
+
+                         {/* button increment */}
+                         <PressableStyled   justifyContent='center' alignItems='center'>
+                          <Ionicons name='add-outline' size={30} color={'#53B175'}/>
+                        </PressableStyled> 
+
+                      </View>
+
+                      {/* price */}
+                      <View flex={1} w={'100%'} justifyContent='flex-end' >
+                        <Text fontSize={23} fontFamily={'Gilroy_bold'}  textAlign='right' fontWeight={600} color={'#181725'} numberOfLines={2}>
+                          $4.99
+                        </Text>
+                      </View>
+ 
+                    </View>
+                  </View>
+
                 </View>
             </ScrollView>
-    </SafeAreaView>
+        <StatusBar barStyle={'light-content'}/>
+      </SafeAreaView>
   )
 }
 
