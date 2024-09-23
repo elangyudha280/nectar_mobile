@@ -55,16 +55,6 @@ function PageDashboard() {
     {id:1},{id:2},{id:3},{id:4}
   ]  
 
-  // React.useEffect(()=>{
-  //   AsyncStorage.getItem('profile-user').then((value) => {
-  //     console.log(value)
-  //     if (value !== null) {
-  //       console.log('Data yang diambil:', value);
-  //     }
-  //   }).catch((error) => {
-  //     console.log('Gagal mengambil data:', error);
-  //   });
-  //     })
   // data bahan makanan
   let Groceries : GroceriesDashboard[] = [
     {
