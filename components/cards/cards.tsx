@@ -5,10 +5,11 @@ import { View,Image,Text } from "tamagui"
 import { Ionicons } from "@expo/vector-icons"
 import { interfaceSlideItems } from "@/interface/cardSliderInterface"
 import { formatToUSD } from "@/utils/parseNumber"
+import { router } from "expo-router"
 type propsSlider = interfaceSlideItems
 
 interface interfacePropsCardFood {
-  id?:string|number,
+  id:string|number,
   title:string,
   description:string,
   price:string|number,
@@ -101,6 +102,14 @@ const CardFood = ({id,title,description,price,poster}:interfacePropsCardFood)=>{
 
           {/* button add */}
           <Pressable 
+          onPress={()=>{
+            router.push({
+              pathname:'/(dashboard)/(detailFood)/[id]',
+              params:{
+                id
+              }
+            })
+          }}
           style={{
             width:40,
             height:40,
