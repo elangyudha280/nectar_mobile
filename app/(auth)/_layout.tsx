@@ -19,7 +19,7 @@ const LayoutAuth = ()=>{
       // jika ada data user  ada maka protected false atau arahkan ke dashboard
       else{
         setCheckProtected(true)
-        router.replace('/(dashboard)')
+        router.replace('/(dashboard)/(tabs)')
       }
     }).catch(() => {
       setCheckProtected(false)

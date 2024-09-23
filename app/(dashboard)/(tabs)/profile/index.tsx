@@ -96,7 +96,7 @@ const PageProfile = ()=>{
         setLoadingLogout(true)
         try{
             await AsyncStorage.removeItem('profile-user')
-            router.replace('/(auth)')
+            router.replace('/(auth)/login')
         }
         catch(err){
             return
