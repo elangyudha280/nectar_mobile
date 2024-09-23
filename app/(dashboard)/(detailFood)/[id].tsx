@@ -106,8 +106,8 @@ function PageDetailFood() {
                     {/* button add to cart */}
                     <PressableStyled   borderRadius={10} bg={"#53B175"} p={15} flexDirection='row' justifyContent='center' alignItems='center' gap={8}>
                                     {/* text */}
-                                    <Text color={'#fff'} fontFamily={'Gilroy_bold'} flex={1} textAlign='center'>
-                                      Add All To Cart
+                                    <Text color={'#fff'} fontFamily={'Gilroy_bold'} fontSize={16} flex={1} textAlign='center'>
+                                      Add To Basket
                                     </Text>
                     </PressableStyled>
                   </View>
