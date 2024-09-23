@@ -1,16 +1,72 @@
 import { router, useLocalSearchParams } from 'expo-router'
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 
 // import component
 import { SafeAreaView,ScrollView,StatusBar,Pressable,ImageBackground } from 'react-native'
 import { View,Text,styled, Image, } from 'tamagui'
 import { Ionicons } from '@expo/vector-icons'
 import { Link } from 'expo-router'
+
+// import store
+import useListExclusiveFood from '@/store/foodExclusive'
+import useFoodBestSelling from '@/store/foodBestSelling'
+import useFoodMeat from '@/store/foodMeat'
+import { formatToUSD } from '@/utils/parseNumber'
+
 const PressableStyled = styled(Pressable)
 
 function PageDetailFood() {
     // get parameter
-    let {id} = useLocalSearchParams()
+    let {id,typeDetail} = useLocalSearchParams()
+    // store
+    let exclusiveFood = useListExclusiveFood((state:any) => state.exclusiveFood)
+    let bestSellingFood = useFoodBestSelling((state:any) => state.foodBestSelling)
+    let meatFood = useFoodMeat((state:any) => state.foodMeat)
+
+
+    let [detailFood,setDetailFood] = useState<any>({})
+
+    // state total food 
+    let [totalFood,setTotalFood] = useState({
+      type:"",
+      total:0
+    })
+
+    // set data detail food
+    useEffect(() => {
+      // check detail type food
+      if(typeDetail === 'exclusiveFood'){
+        let filterExlusiveFood = exclusiveFood?.find((el:any) => el.id == id)
+        setDetailFood(filterExlusiveFood)
+
+      }
+      else if(typeDetail === 'bestSellingFood'){
+        let filterbestSellingFood = bestSellingFood?.find((el:any) => el.id == id)
+        setDetailFood(filterbestSellingFood)
+      }
+      else{
+        let filtermeatFood = meatFood?.find((el:any) => el.id == id)
+        setDetailFood(filtermeatFood)
+      }
+    }, [])
+    
+
+    // handle count
+    const handleCount = (type:string) =>{
+      if(type === 'increment'){
+          setTotalFood(state =>({
+            type:"increment",
+            total:state.total+1
+          }))
+          return
+      }
+      setTotalFood(state =>({
+        type:"decrement",
+        total:state.total < 1 ? state.total : state.total-1
+      }))
+    }
+
+
   return (
       <SafeAreaView style={{flex:1,position:'relative',backgroundColor:'white'}}>
             <ScrollView style={{flex:1,backgroundColor:'white'}} contentContainerStyle={{flexGrow:1}}>
@@ -33,9 +89,9 @@ function PageDetailFood() {
                       </PressableStyled>
                     </View>
 
-                    {/* body CONTENT */}
+                    {/* body CONTENT  TOP*/}
                     <View position='relative' w={'100%'} px={15} pt={10} pb={20}  justifyContent='center' alignItems='center'>
-                          <Image source={require('@/assets/images/apple.png')}  w={200} h={200} objectFit='contain'/>
+                          <Image source={detailFood?.poster}  w={200} h={200} objectFit='contain'/>
                     </View>
                   </View>
 
@@ -45,12 +101,12 @@ function PageDetailFood() {
                     <View position='relative' w={'100%'} flexDirection='row' gap={10} p={5} alignItems='center'>
                       {/* name */}
                       <View flex={1}>
-                        <Text fontSize={23} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={2}>
-                          Nature Red Apple
+                        <Text fontSize={23} fontFamily={'Gilroy_bold'} fontWeight={600} color={'#181725'} numberOfLines={2} textTransform='capitalize'>
+                          {detailFood?.title}
                         </Text>
 
                         <Text fontSize={14} fontFamily={'Gilroy_medium'} fontWeight={500} color={'#7C7C7C'} numberOfLines={3}>
-                          1kg, Price
+                          {detailFood?.description}
                         </Text>
                       </View>
                       <PressableStyled position='relative' justifyContent='center' alignItems='center'>
@@ -63,20 +119,26 @@ function PageDetailFood() {
                       {/* left button */}
                       <View flexDirection='row' gap={12}>
                         {/* button decrement */}
-                        <PressableStyled   justifyContent='center' alignItems='center'>
-                          <Ionicons name='remove-outline' size={30} color={'#7C7C7C'}/>
+                        <PressableStyled onPress={()=>{
+                          handleCount('decrement')
+                        }}  justifyContent='center' alignItems='center'>
+                          <Ionicons name='remove-outline' size={30} color={totalFood?.type === 'decrement' ? '#53B175' : '#7C7C7C'}/>
                         </PressableStyled> 
 
                         {/* total */}
                         <View  borderRadius={'$7'} w={45} h={45} borderWidth="$1" borderColor={'#E2E2E2'} justifyContent='center' alignItems='center' p={2}>
                               <Text  fontFamily={'Gilroy_semiBold'} numberOfLines={1}>
-                                100
+                                {totalFood?.total}
                               </Text>
                         </View>
 
                          {/* button increment */}
-                         <PressableStyled   justifyContent='center' alignItems='center'>
-                          <Ionicons name='add-outline' size={30} color={'#53B175'}/>
+                         <PressableStyled  
+                          onPress={()=>{
+                            handleCount('increment')
+                          }} 
+                         justifyContent='center' alignItems='center'>
+                          <Ionicons name='add-outline' size={30} color={totalFood?.type === 'increment' ? '#53B175' : '#7C7C7C'}/>
                         </PressableStyled> 
 
                       </View>
@@ -84,10 +146,9 @@ function PageDetailFood() {
                       {/* price */}
                       <View flex={1} w={'100%'} justifyContent='flex-end' >
                         <Text fontSize={23} fontFamily={'Gilroy_bold'}  textAlign='right' fontWeight={600} color={'#181725'} numberOfLines={2}>
-                          $4.99
+                          {formatToUSD(detailFood?.price)}
                         </Text>
                       </View>
- 
                     </View>
 
 

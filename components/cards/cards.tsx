@@ -10,6 +10,7 @@ type propsSlider = interfaceSlideItems
 
 interface interfacePropsCardFood {
   id:string|number,
+  typeDetail:string,
   title:string,
   description:string,
   price:string|number,
@@ -67,7 +68,7 @@ const CardSliderDashboard  = ({id,title,diskon,poster}:propsSlider)=>{
 }
 
 // component card food
-const CardFood = ({id,title,description,price,poster}:interfacePropsCardFood)=>{
+const CardFood = ({id,typeDetail,title,description,price,poster}:interfacePropsCardFood)=>{
   return (
     <View flex={1} w={150}  p={8}  borderRadius={10} borderWidth={1} borderColor={'#E2E2E2'}>
     {/* header */}
@@ -106,7 +107,8 @@ const CardFood = ({id,title,description,price,poster}:interfacePropsCardFood)=>{
             router.push({
               pathname:'/(dashboard)/(detailFood)/[id]',
               params:{
-                id
+                id,
+                typeDetail
               }
             })
           }}

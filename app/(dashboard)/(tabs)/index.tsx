@@ -174,7 +174,7 @@ function PageDashboard() {
                               return (
                                 <Fragment>
                                     {/* card */}
-                                    <CardFood id={item.id} title={item.title} description={item.description} poster={item.poster} price={item.price} />
+                                    <CardFood id={item.id} typeDetail='exclusiveFood' title={item.title} description={item.description} poster={item.poster} price={item.price} />
                                 </Fragment>
                               )
                             }}
@@ -211,7 +211,7 @@ function PageDashboard() {
                               return (
                                 <Fragment>
                                     {/* card */}
-                                    <CardFood id={item.id} title={item.title} description={item.description} poster={item.poster} price={item.price} />
+                                    <CardFood id={item.id} typeDetail='bestSellingFood' title={item.title} description={item.description} poster={item.poster} price={item.price} />
                                 </Fragment>
                               )
                             }}
@@ -264,7 +264,7 @@ function PageDashboard() {
                               return (
                                 <Fragment>
                                     {/* card */}
-                                    <CardFood id={item.id} title={item.title} description={item.description} poster={item.poster} price={item.price} />
+                                    <CardFood id={item.id} typeDetail='' title={item.title} description={item.description} poster={item.poster} price={item.price} />
                                 </Fragment>
                               )
                             }}
