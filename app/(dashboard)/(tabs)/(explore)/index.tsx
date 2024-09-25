@@ -4,7 +4,6 @@ import React from 'react'
 import { View,Text,Image } from 'tamagui'
 import {SafeAreaView,ScrollView,StatusBar,TextInput, TouchableOpacity,useWindowDimensions } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-
 // import store dan utils
 import useFoodCategory from '@/store/foodCategory'
 import { foodCategories } from '@/interface/interfaceFoodCategories'
