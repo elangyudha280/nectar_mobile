@@ -47,6 +47,7 @@ const LayoutDashboard = ()=>{
                 <Stack >
                     <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                     <Stack.Screen name="(detailFood)/[id]" options={{ headerShown:false }} />
+                    <Stack.Screen name="(detailCategory)" options={{ headerShown:false }} />
                 </Stack>
             }
         </>

@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons'
 // import store dan utils
 import useFoodCategory from '@/store/foodCategory'
 import { foodCategories } from '@/interface/interfaceFoodCategories'
+import { router } from 'expo-router'
 function PageExplore() {
     
     let {width} = useWindowDimensions()
@@ -51,7 +52,14 @@ function PageExplore() {
                                         alignItems:'center',
                                         borderWidth:1,
                                         borderColor:`${el.bordercolor}`
-                                    }}>
+                                    }} onPress={()=>{
+                                        router.push({
+                                            pathname:'/(dashboard)/(detailCategory)/[idCategory]',
+                                            params:{
+                                                idCategory:el.id
+                                            }
+                                        })
+                                    }}> 
                                       
                                         <Image source={el.poster}/>
                                         <Text textTransform='capitalize' mt={15} fontSize={15} textAlign='center' fontFamily={'Gilroy_bold'}>
