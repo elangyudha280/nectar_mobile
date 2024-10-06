@@ -9,7 +9,8 @@ import config from '@/tamagui.config';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-
+import { LogBox } from 'react-native';
+LogBox.ignoreAllLogs()
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
